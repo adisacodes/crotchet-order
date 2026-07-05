@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cozy Loops Co - Products</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Products</a> | <a href="/orders">Orders</a>
+    </nav>
+    <h1>Cozy Loops Co - Our Products</h1>
+
+    {% for product in products %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>Price: KSh {{ product.price }}</p>
+
+            <h3>Orders for this product:</h3>
+            <ul>
+                {% for order in product.orders %}
+                    <li>{{ order.customer_name }} — Qty: {{ order.quantity }}</li>
+                {% else %}
+                    <li>No orders yet</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</body>
+</html>

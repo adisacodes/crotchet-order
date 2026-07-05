@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cozy Loops Co - Orders</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Products</a> | <a href="/orders">Orders</a>
+    </nav>
+
+    <h1>Cozy Loops Co - All Orders</h1>
+
+    {% for order in orders %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+            <p>Customer: {{ order.customer_name }}</p>
+            <p>Product: {{ order.product.name }}</p>
+            <p>Quantity: {{ order.quantity }}</p>
+            <p>Ordered on: {{ order.created_at }}</p>
+        </div>
+    {% else %}
+        <p>No orders yet.</p>
+    {% endfor %}
+</body>
+</html>

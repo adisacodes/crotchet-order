@@ -15,5 +15,10 @@ def home():
     products = Product.query.all()
     return render_template('products.html', products=products)
 
+@app.route('/orders')
+def orders():
+    all_orders = Order.query.all()
+    return render_template('orders.html', orders=all_orders)
+
 if __name__ == '__main__':
     app.run(debug=True)

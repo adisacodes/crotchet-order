@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -26,6 +27,8 @@ class Order(db.Model):
 
     # This is the Foreign Key — it links each Order to one Product
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'), nullable=False)
+
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return f'<Order {self.id} - {self.customer_name}>'
